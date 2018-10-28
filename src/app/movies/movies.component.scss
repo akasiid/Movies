@@ -1,0 +1,23 @@
+.movies,
+.movies-list {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.movies {
+  position: relative;
+  max-height: 100vh;
+  overflow-y: scroll;
+}
+
+.movies-list {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.movie-wrp {
+  width: calc(50% - 30px);
+  margin: 15px;
+  color: #000;
+  text-decoration: none;
+}

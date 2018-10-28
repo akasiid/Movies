@@ -1,0 +1,35 @@
+body, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+ul, ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.m-h1 {
+  font-size: 23px;
+}
+
+.header {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  width: 100%;
+  padding: 15px 30px;
+  box-sizing: border-box;
+  background-color: #081c24;
+  cursor: pointer;
+  user-select: none;
+
+  .logo {
+    font-size: 32px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .search {
+    margin-left: auto;
+  }
+}

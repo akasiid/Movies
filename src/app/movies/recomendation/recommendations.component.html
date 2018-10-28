@@ -1,0 +1,29 @@
+<div *ngIf="movies && movies.length" class="movies-recommendations">
+  <h2 class="m-h1 mr-title">{{title}}</h2>
+  <div class="mr-slider" Click (direction)="directionHandler($event)">
+    <div [ngClass]="{'mr-control': true, '_left': true, '_disabled': offset === 0}"></div>
+    <div #container class="mr-container">
+      <div #slideList class="mr-list">
+        <div #slide class="mr-item" *ngFor="let movie of movies">
+          <a class="mr-link" routerLink="/details/{{movie.id}}">
+            <span class="mr-poster">
+              <img *ngIf="movie.backdrop_path" data-sizes="auto"
+                   data-src="https://image.tmdb.org/t/p/w250_and_h141_face{{movie.backdrop_path}}"
+                   data-srcset="https://image.tmdb.org/t/p/w250_and_h141_face{{movie.backdrop_path}} 1x,
+                                https://image.tmdb.org/t/p/w500_and_h282_face{{movie.backdrop_path}} 2x"
+                   alt="{{movie.title}}" sizes="250px"
+                   srcset="https://image.tmdb.org/t/p/w250_and_h141_face{{movie.backdrop_path}} 1x,
+                   https://image.tmdb.org/t/p/w500_and_h282_face{{movie.backdrop_path}} 2x"
+                   src="https://image.tmdb.org/t/p/w250_and_h141_face{{movie.backdrop_path}}">
+              <img *ngIf="!movie.backdrop_path" src="https://dummyimage.com/250x141/cccccc/ffffff&text=image+not+found" alt="image not found">
+            </span>
+            <span class="mr-slide-title">
+              {{movie.title}}
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div [ngClass]="{'mr-control': true, '_right': true, '_disabled': max}" class="mr-control _right"></div>
+  </div>
+</div>

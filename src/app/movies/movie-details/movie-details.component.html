@@ -1,0 +1,13 @@
+<div class="movie-details" *ngIf="movieDetails">
+  <header class="header">
+    <a class="logo" routerLink="/">
+      Movies
+    </a>
+  </header>
+  <div class="md-content">
+    <movie details="true" [movie]="movieDetails"></movie>
+  </div>
+  <recommendations title="Recommendations" movieId="{{movieDetails.id}}"></recommendations>
+  <recommendations title="Similar" movieId="{{movieDetails.id}}" isSimilar="true"></recommendations>
+</div>
+<loading-spinner *ngIf="isLoading"></loading-spinner>

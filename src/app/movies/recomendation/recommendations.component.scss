@@ -1,0 +1,118 @@
+.movies-recommendations {
+  padding: 0 15px;
+  margin-bottom: 30px;
+
+  .mr-title {
+    margin-bottom: 10px;
+  }
+
+  .mr-slider {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    user-select: none;
+    min-height: 141px;
+  }
+
+  .mr-container {
+    width: calc(100% - 60px);
+    overflow: hidden;
+  }
+
+  .mr-control {
+    display: flex;
+    align-self: stretch;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    cursor: pointer;
+
+    &._left:before,
+    &._right:before {
+      content: "";
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border-style: solid;
+      border-width: 2px;
+      border-color: #000 #000 transparent transparent;
+    }
+
+    &._left:before {
+      transform: rotate(-135deg);
+      margin-right: -10px;
+    }
+
+    &._right:before {
+      transform: rotate(45deg);
+      margin-left: -10px;
+    }
+
+    &._disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  .mr-list {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    left: 0;
+    transition: left ease .4s;
+
+    .mr-item {
+      width: 16.66%;
+      flex: 1 0 auto;
+      text-align: center;
+      font-size: 0;
+    }
+
+    .mr-link {
+      position: relative;
+      display: inline-block;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .mr-poster {
+      display: inline-block;
+    }
+
+    .mr-slide-title {
+      position: absolute;
+      display: inline-block;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 2px 5px;
+      box-sizing: border-box;
+      font-size: 14px;
+      text-align: left;
+      color: #081c24;
+      background-color: rgba(204, 204, 204, .75);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .movies-recommendations {
+    .mr-list {
+      .mr-item {
+        width: 20%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .movies-recommendations {
+    .mr-list {
+      .mr-item {
+        width: 25%;
+      }
+    }
+  }
+}

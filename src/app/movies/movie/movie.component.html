@@ -1,0 +1,32 @@
+<div [ngClass]="{movie: true, _details: details, _favorite: isFavorite}">
+  <div class="movie-poster">
+    <img *ngIf="!movie.poster_path" alt="{{movie.title}}" src="https://dummyimage.com/185x278/dbdbdb/fff.jpg&text=image+not+found" />
+    <img *ngIf="movie.poster_path && details" alt="{{movie.title}}" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{movie.poster_path}}" />
+    <img *ngIf="movie.poster_path && !details" alt="{{movie.title}}" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2{{this.movie.poster_path}}" />
+  </div>
+  <section class="movie-description">
+    <h2 class="m-h1 movie-title">
+      {{movie.title}}
+    </h2>
+    <section *ngIf="details" class="movie-overview">
+      <h2 class="m-h1">Overview</h2>
+      {{movie.overview}}
+    </section>
+    <section class="movie-genres">
+      <span class="badge" *ngFor="let genre of movie.genres">
+        {{genre.name}}
+      </span>
+    </section>
+  </section>
+  <section Click (favorites)="favoritesHandler($event)" class="favorites">
+    <span class="favorites-add">
+      <svg class="favorites-add-icon" aria-hidden="true" focusable="false">
+        <use xlink:href="#icon-star"></use>
+      </svg>
+      <span class="favorite-add-text">
+        <span *ngIf="!isFavorite">Add to favorite</span>
+        <span *ngIf="isFavorite">Remove from favorite</span>
+      </span>
+    </span>
+  </section>
+</div>

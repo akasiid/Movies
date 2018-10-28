@@ -1,0 +1,126 @@
+.movie {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+
+  .movie-poster {
+    font-size: 0;
+  }
+
+  .movie-description {
+    display: flex;
+    padding: 10px 15px;
+    flex: 1 1 0%;
+    flex-flow: column;
+  }
+
+  .movie-title {
+    margin-bottom: 10px;
+  }
+
+  .movie-genres {
+    margin-top: auto;
+
+    .badge {
+      display: inline-block;
+      margin: 0 2px 2px 0;
+      border: 1px solid #ccc;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+  }
+
+  .favorites {
+    position: absolute;
+    display: flex;
+    bottom: -100%;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, .7);
+    transition: top ease .4s;
+    cursor: default;
+    user-select: none;
+
+    .favorites-show {
+      margin-left: auto;
+      color: #fff;
+      font-size: 23px;
+      text-decoration: none;
+    }
+
+
+    .favorites-add {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      &:hover {
+        .favorites-add-icon {
+          fill: #eaf040;
+        }
+
+        .favorite-add-text {
+          display: block;
+        }
+      }
+    }
+
+    .favorite-add-text {
+      display: none;
+      color: #fff;
+      pointer-events: none;
+    }
+
+    .favorites-add-icon {
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      margin-right: 5px;
+      fill: #ccc;
+      pointer-events: none;
+    }
+  }
+
+  &:hover {
+    .favorites {
+      bottom: 0;
+    }
+  }
+
+  &._details {
+    width: 1000px;
+    min-height: 450px;
+  }
+
+  &:not(._details) {
+    box-shadow: 1px 1px 2px 0 #ccc;
+  }
+
+  &._favorite {
+    &:not(._details) {
+      box-shadow: 1px 1px 2px 0 rgba(111, 97, 0, .7);
+    }
+
+    .favorites {
+      bottom: 0;
+      background-color: transparent;
+
+      .favorites-add:hover {
+        .favorites-add-icon {
+          fill: #ccc;
+        }
+      }
+
+      .favorites-add-icon {
+        fill: #eaf040;
+      }
+    }
+
+    &:hover {
+      .favorites {
+        background-color: rgba(0, 0, 0, .7);
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<div #container *ngIf="favorites && favorites.length" class="favorite-container">
+  <ul class="favorite-movies">
+    <li class="favorite-movie" *ngFor="let favorite of favorites">
+      <a routerLink="/details/{{favorite.id}}" class="fm-link">
+        {{favorite.title}}
+      </a>
+      <svg (click)="remove(favorite.id)" class="fm-remove" aria-hidden="true" focusable="false">
+        <use xlink:href="#icon-trash"></use>
+      </svg>
+    </li>
+  </ul>
+  <div (click)="toggle()" class="fc-toggle">
+    <svg class="fc-toggle-icon" aria-hidden="true" focusable="false">
+      <use xlink:href="#icon-star"></use>
+    </svg>
+  </div>
+</div>
+
