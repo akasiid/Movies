@@ -63,12 +63,12 @@ export class RecommendationsComponent implements OnInit, OnChanges, OnDestroy {
       .subscribe(movies => this.movies = movies);
   }
 
-  directionHandler(e) {
+  directionHandler(event) {
     if (!this.visible && this.visible != div(this.container.nativeElement.offsetWidth, this.slide.nativeElement.offsetWidth)) {
       this.visible = div(this.container.nativeElement.offsetWidth, this.slide.nativeElement.offsetWidth);
     }
 
-    if (e === 'right' && !this.max) {
+    if (event.target.className.indexOf('_right') > -1 && !this.max) {
       this.position++;
 
       if ((this.position + this.visible) % 20 == 0 && this.position + this.visible < this.totalResults) {
@@ -76,7 +76,7 @@ export class RecommendationsComponent implements OnInit, OnChanges, OnDestroy {
       }
     }
 
-    if (e === 'left' && this.offset < 0) {
+    if (event.target.className.indexOf('_left') > -1  && this.offset < 0) {
       this.position--;
     }
 

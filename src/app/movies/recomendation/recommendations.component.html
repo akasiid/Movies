@@ -1,7 +1,7 @@
 <div *ngIf="movies && movies.length" class="movies-recommendations">
   <h2 class="m-h1 mr-title">{{title}}</h2>
-  <div class="mr-slider" Click (direction)="directionHandler($event)">
-    <div [ngClass]="{'mr-control': true, '_left': true, '_disabled': offset === 0}"></div>
+  <div class="mr-slider">
+    <div (click)="directionHandler($event)" [ngClass]="{'mr-control': true, '_left': true, '_disabled': offset === 0}"></div>
     <div #container class="mr-container">
       <div #slideList class="mr-list">
         <div #slide class="mr-item" *ngFor="let movie of movies">
@@ -24,6 +24,6 @@
         </div>
       </div>
     </div>
-    <div [ngClass]="{'mr-control': true, '_right': true, '_disabled': max}" class="mr-control _right"></div>
+    <div (click)="directionHandler($event)" [ngClass]="{'mr-control': true, '_right': true, '_disabled': max}" class="mr-control _right"></div>
   </div>
 </div>

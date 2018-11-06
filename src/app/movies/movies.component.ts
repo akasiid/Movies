@@ -28,6 +28,7 @@ export class MoviesComponent implements OnInit {
 
   getPopular(): void {
     this.page = 1;
+    this.query = '';
     this.moviesService.getPage(this.page)
       .subscribe(page => this.movies = page.results);
   }

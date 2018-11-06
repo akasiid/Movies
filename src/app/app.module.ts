@@ -9,7 +9,6 @@ import { ScrollableDirective } from './decorators/scrollable.directive';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { MovieDetailsComponent } from './movies/movie-details/movie-details.component';
 import { RecommendationsComponent } from './movies/recomendation/recommendations.component';
-import { ClickDirective } from './decorators/click.directive';
 import { MovieComponent } from './movies/movie/movie.component';
 import { FavoritesComponent } from './movies/favorites/favorites.component';
 import { SvgComponent } from './svg/svg.component';
@@ -22,7 +21,6 @@ import { SvgComponent } from './svg/svg.component';
     LoadingSpinnerComponent,
     MovieDetailsComponent,
     RecommendationsComponent,
-    ClickDirective,
     MovieComponent,
     FavoritesComponent,
     SvgComponent,

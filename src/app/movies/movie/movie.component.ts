@@ -35,7 +35,14 @@ export class MovieComponent implements OnInit {
     this.movieService.initFavorites();
   }
 
-  favoritesHandler(e) {
+  favoritesHandler(event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    if (event.target.className.indexOf('favorites-add') === -1) {
+      return
+    }
+
     if (this.isFavorite) {
       this.movieService.remove(this.movie.id)
     } else {

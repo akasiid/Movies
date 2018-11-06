@@ -4,7 +4,6 @@ import { Observable , Subject } from 'rxjs';
 
 @Injectable()
 export class ResizeService {
-
   get onResize$(): Observable<Window> {
     return this.resizeSubject.asObservable();
   }
